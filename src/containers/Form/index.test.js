@@ -14,6 +14,20 @@ describe("When Events is created", () => {
     it("the success action is called", async () => {
       const onSuccess = jest.fn();
       render(<Form onSuccess={onSuccess} />);
+
+      fireEvent.change(await screen.findByLabelText("Email"), {
+        target: { value: "test@example.com" },
+      });
+      fireEvent.change(await screen.findByLabelText("Nom"), {
+        target: { value: "TestNom" },
+      });
+      fireEvent.change(await screen.findByLabelText("Prénom"), {
+        target: { value: "TestPrénom" },
+      });
+      fireEvent.change(await screen.findByLabelText("Personel / Entreprise"), {
+        target: { value: "Personnel" },
+      });
+
       fireEvent(
         await screen.findByTestId("button-test-id"),
         new MouseEvent("click", {

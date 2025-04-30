@@ -1,12 +1,13 @@
 @import "src/colors.scss";
 
-.inputField {
+.inputField section {
   display: flex;
   flex-direction: column;
   color: $black;
   align-items: flex-start;
   margin: 8px;
-  span {
+  label {
+    color: white;
     font-size: 12pt;
     margin-bottom: 4px;
   }

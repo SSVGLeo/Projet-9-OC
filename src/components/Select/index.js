@@ -22,7 +22,19 @@ const Select = ({
   };
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">
-      {label && <div className="label">{label}</div>}
+      {label && (
+        <label htmlFor={`field-${name}`} className="label">
+          {label}
+        </label>
+      )}
+      <input
+        type="text"
+        id={`field-${name}`}
+        value={value || ""}
+        onChange={() => {}}
+        style={{ position: "absolute", left: "-9999px" }}
+        aria-hidden="true"
+      />
       <div className="Select">
         <ul>
           <li className={collapsed ? "SelectTitle--show" : "SelectTitle--hide"}>
@@ -88,7 +100,7 @@ Select.propTypes = {
   titleEmpty: PropTypes.bool,
   label: PropTypes.string,
   type: PropTypes.string,
-}
+};
 
 Select.defaultProps = {
   onChange: () => null,
@@ -96,6 +108,6 @@ Select.defaultProps = {
   label: "",
   type: "normal",
   name: "select",
-}
+};
 
 export default Select;

@@ -12,12 +12,16 @@ const Field = ({ type = FIELD_TYPES.INPUT_TEXT, label, name, placeholder }) => {
   switch (type) {
     case FIELD_TYPES.INPUT_TEXT:
       component = (
-        <input
-          type="text"
-          name={name}
-          placeholder={placeholder}
-          data-testid="field-testid"
-        />
+        <section>
+          <label htmlFor={`field-${name}`}>{label}</label>
+          <input
+            type="text"
+            name={name}
+            id= {`field-${name}`}
+            placeholder={placeholder}
+            data-testid="field-testid"
+          />
+        </section>
       );
       break;
     case FIELD_TYPES.TEXTAREA:
@@ -33,12 +37,7 @@ const Field = ({ type = FIELD_TYPES.INPUT_TEXT, label, name, placeholder }) => {
         />
       );
   }
-  return (
-    <div className="inputField">
-      <span>{label}</span>
-      {component}
-    </div>
-  );
+  return <div className="inputField">{component}</div>;
 };
 
 Field.propTypes = {
@@ -47,11 +46,11 @@ Field.propTypes = {
   label: PropTypes.string,
   placeholder: PropTypes.string,
 };
- Field.defaultProps = {
-   label: "",
-   placeholder: "",
-   type: FIELD_TYPES.INPUT_TEXT,
-   name: "field-name",
- }
+Field.defaultProps = {
+  label: "",
+  placeholder: "",
+  type: FIELD_TYPES.INPUT_TEXT,
+  name: "field-name",
+};
 
 export default Field;

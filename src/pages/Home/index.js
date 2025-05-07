@@ -116,7 +116,7 @@ const Page = () => {
         </div>
       </main>
       <footer className="row">
-        <div className="col presta">
+        <div className="col presta, cursor-normal">
           <h3>Notre derniére prestation</h3>
           {last?.cover && last?.title && last?.date && (
             <EventCard
@@ -125,6 +125,7 @@ const Page = () => {
               date={new Date(last.date)}
               small
               label="boom"
+              style={{ cursor: "default" }}
             />
           )}
         </div>

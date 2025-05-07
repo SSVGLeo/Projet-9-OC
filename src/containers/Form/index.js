@@ -40,21 +40,6 @@ const Form = ({ onSuccess, onError }) => {
         setSending(false);
         onError(err);
       }
-
-      // if (nom || prenom || email || type || message) {
-        //   try {
-        //     await mockContactApi();
-        //     setErrorMessage(null);
-        //     setSending(false);
-        //     onSuccess();
-        //   } catch (err) {
-        //     setSending(false);
-        //     onError(err);
-        //   }
-        // } else {
-        //   setSending(false);
-        //   setErrorMessage("Veuillez remplir tous les champs");
-        // }
     },
     [nom, prenom, email, type, message, onSuccess, onError]
   );
@@ -95,7 +80,7 @@ const Form = ({ onSuccess, onError }) => {
         </div>
         <div className="col">
           <Field
-            placeholder="message"
+            placeholder=""
             label="Message"
             type={FIELD_TYPES.TEXTAREA}
             value={message}
